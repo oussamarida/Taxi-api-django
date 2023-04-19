@@ -125,9 +125,9 @@ useEffect(() => {
                           <View style={styles.card}>
                           <Text style={{marginLeft:'10%' , fontSize: 30, color:'white'}}> Proprietair :</Text>
                           <Text style={{marginLeft:'20%' , fontSize: 20, color:'white'}}>Total Charges :</Text>
-                          <Text style={{marginLeft:'60%' , fontSize: 30, color:'red'}}>{totalchargep}</Text>
+                          <Text style={{marginLeft:'60%' , fontSize: 30, color:'white'}}>{totalchargep}</Text>
                           <Text style={{marginLeft:'20%' , fontSize: 20, color:'white'}}>Rest net :</Text>
-                          <Text style={{marginLeft:'60%' , fontSize: 30, color:'red'}}>{totalpropritaire}</Text>
+                          <Text style={{marginLeft:'60%' , fontSize: 30, color:'white'}}>{totalpropritaire}</Text>
 
 
                                                    
@@ -135,13 +135,13 @@ useEffect(() => {
                           <View style={styles.card}>
                           <Text style={{marginLeft:'10%' , fontSize: 30, color:'white'}}>Chauffeur :</Text>
                           <Text style={{marginLeft:'20%' , fontSize: 20, color:'white'}}> Total Charges  :</Text>
-                          <Text style={{marginLeft:'60%' , fontSize: 30, color:'red'}}>{totalchargech}</Text>
+                          <Text style={{marginLeft:'60%' , fontSize: 30, color:'white'}}>{totalchargech}</Text>
                           <Text style={{marginLeft:'20%' , fontSize: 20, color:'white'}}>Rest net :</Text>
-                          <Text style={{marginLeft:'60%' , fontSize: 30, color:'red'}}>{totalcheffaure}</Text>
+                          <Text style={{marginLeft:'60%' , fontSize: 30, color:'white'}}>{totalcheffaure}</Text>
                         </View>
                         <View style={styles.card}>
                         <Text style={{marginLeft:'10%' , fontSize: 30, color:'white'}}>Gasoil :</Text>
-                          <Text style={{marginLeft:'40%' , fontSize: 50, color:'red'}}>{totalgasoil}</Text>
+                          <Text style={{marginLeft:'40%' , fontSize: 50, color:'white'}}>{totalgasoil}</Text>
                         </View>
                     
           </View>
@@ -193,7 +193,7 @@ useEffect(() => {
       },card:{
         height:"23%",
         width:'90%',
-        backgroundColor:"#3D3F3F",
+        backgroundColor:"black",
         marginLeft:"5O%",
         borderRadius:50,
         marginTop:"3%",
