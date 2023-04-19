@@ -11,15 +11,18 @@ import {Picker} from '@react-native-picker/picker';
 
 export default function Etat({navigation}) {
 
-  const [choosenLabel, setChoosenLabel] = useState(''); // initialize with an empty string
-  const [choosenIndex, setChoosenIndex] = useState(0); // initialize with the default index, usually 0
+  const [choosenLabel, setChoosenLabel] = useState(''); 
+  const [choosenIndex, setChoosenIndex] = useState(0); 
   
 
   const [totalgasoil, settotalgasoil] = useState([]);
   const [totalchargep, settotalchargep] = useState([]);
 
+
+  const [totalcheffaure, settotalcheffaure] = useState([]);
+  const [totalpropritaire, settotalpropritaire] = useState([]);
   const [totalchargech, settotalchargech] = useState([]);
-  const [totalRestpro, settRestpr] = useState([]);
+ 
 
 
   const [taxi, settaxi] = useState([]);
@@ -27,7 +30,7 @@ export default function Etat({navigation}) {
   const [taxi2, settaxi2] = useState([]);
 
 useEffect(() => {
-  fetch('https://2691-41-140-244-97.ngrok-free.app/taximo/', {
+  fetch('https://c4e8-41-141-247-212.ngrok-free.app/taximo/', {
     method: 'GET',
   })
     .then((response) => response.json())
@@ -45,15 +48,18 @@ useEffect(() => {
     .catch((error) => console.error('Error:', error));
 }, []);
 
+
+
+
 useEffect(() => {
   if (choosenLabel) {
-    fetch(`https://2691-41-140-244-97.ngrok-free.app/taximo/?search=${choosenLabel}`, {
+    fetch(`https://c4e8-41-141-247-212.ngrok-free.app/taximo/?search=${choosenLabel}`, {
       method: 'GET',
     })
       .then((response) => response.json())
       .then((data) => {
         settaxi2(data);
-        console.log(data)
+       
 
         const totalpro = data.reduce((accumulator, item) => {
           return accumulator + Number(item.charge_prt);
@@ -72,6 +78,19 @@ useEffect(() => {
         }, 0);
         
         settotalgasoil(totalMntGasoil);
+
+        const totalcheffaure = data.reduce((accumulator, item) => {
+          return accumulator + Number(item.chaffaure);
+        }, 0);
+        
+        settotalcheffaure(totalcheffaure);
+
+        const totalpropri = data.reduce((accumulator, item) => {
+          return accumulator + Number(item.proprietaire);
+        }, 0);
+        
+        settotalpropritaire(totalpropri);
+
         
       })
       .catch((error) => console.error('Error:', error));
@@ -108,17 +127,17 @@ useEffect(() => {
                           <Text style={{marginLeft:'20%' , fontSize: 20, color:'white'}}>Total Charges :</Text>
                           <Text style={{marginLeft:'60%' , fontSize: 30, color:'red'}}>{totalchargep}</Text>
                           <Text style={{marginLeft:'20%' , fontSize: 20, color:'white'}}>Rest net :</Text>
-                          <Text style={{marginLeft:'60%' , fontSize: 30, color:'red'}}>C</Text>
+                          <Text style={{marginLeft:'60%' , fontSize: 30, color:'red'}}>{totalpropritaire}</Text>
 
 
-
+                                                   
                           </View>
                           <View style={styles.card}>
                           <Text style={{marginLeft:'10%' , fontSize: 30, color:'white'}}>Chauffeur :</Text>
                           <Text style={{marginLeft:'20%' , fontSize: 20, color:'white'}}> Total Charges  :</Text>
                           <Text style={{marginLeft:'60%' , fontSize: 30, color:'red'}}>{totalchargech}</Text>
                           <Text style={{marginLeft:'20%' , fontSize: 20, color:'white'}}>Rest net :</Text>
-                          <Text style={{marginLeft:'60%' , fontSize: 30, color:'red'}}>C</Text>
+                          <Text style={{marginLeft:'60%' , fontSize: 30, color:'red'}}>{totalcheffaure}</Text>
                         </View>
                         <View style={styles.card}>
                         <Text style={{marginLeft:'10%' , fontSize: 30, color:'white'}}>Gasoil :</Text>
@@ -145,7 +164,7 @@ useEffect(() => {
             height:"100%",
             backgroundColor:'white',
             marginTop:'50%',
-            borderTopLeftRadius:'150%',
+            borderTopLeftRadius:150,
             paddingTop:"10%"
           },image:{
             position:'absolute',
@@ -164,7 +183,7 @@ useEffect(() => {
         marginBottom:'10%',
         marginTop:"0%",
         backgroundColor:'white',
-        borderRadius:"30%",
+        borderRadius:30,
       }, iconStyle: {
         color: "black",
         fontSize: 50,
@@ -176,7 +195,7 @@ useEffect(() => {
         width:'90%',
         backgroundColor:"#3D3F3F",
         marginLeft:"5O%",
-        borderRadius:"50%",
+        borderRadius:50,
         marginTop:"3%",
       }
     });

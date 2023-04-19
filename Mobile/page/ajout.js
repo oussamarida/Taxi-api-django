@@ -68,8 +68,9 @@ maps=  {
     charge_prt:Number(Chargep),
     chaffaure:Number(chauffeurnet),
     proprietaire:Number(pronet)}
-    alert(`Net Proprietair =  ${pronet}                     Net chauffaur  =  ${chauffeurnet}`)
-    fetch('https://2691-41-140-244-97.ngrok-free.app/taximo/', {
+    alert(`Net Proprietair =  ${pronet}    
+     Net chauffaur  =  ${chauffeurnet}`)
+    fetch('https://c4e8-41-141-247-212.ngrok-free.app/taximo/', {
         method: 'POST',
         headers: {
             'Accept': 'application/json, text/plain, */*',
@@ -84,10 +85,12 @@ maps=  {
     .catch(error => {
         console.error(error);
     });
+    navigation.navigate('Home')
         }
 
     return (
         <SafeAreaView style={styles.home}>
+          
           <View style={styles.part}>
                 <View style={styles.container}>
                     <MaterialButtonDark2
@@ -140,14 +143,13 @@ maps=  {
                           onPress={() => handleCardClick()}
                         ></MaterialButtonDark>
                         
-                      </View>
-                
+                </View>
+             
           </View>
           <Image
-                source={require('../assets/images/taxi.png')}
-                style={styles.image}
-            />
-             <Text style={styles.title}>Ajoute</Text>
+                    source={require('../assets/images/taxi.png')}
+                    style={styles.image}
+                />
     </SafeAreaView>  
     );
     }
@@ -160,17 +162,17 @@ maps=  {
             height:"100%",
             backgroundColor:'white',
             marginTop:'40%',
-            borderTopLeftRadius:'150%',
-            paddingTop:"40%"
+            borderTopLeftRadius:150,
+            paddingTop:"10%"
           },image:{
             position:'absolute',
             height:'30%',
             width:"105%",
-            marginTop:'20%'
+            marginTop:'0%'
           },title:{
             position:"absolute",
             color: 'black',
-            fontSize: '50%',
+            fontSize: 50,
             marginLeft:"30%",
             marginTop:'5%'
           }, materialButtonDark: {
@@ -193,4 +195,10 @@ maps=  {
           }
        
 
-    });
+    });  
+    
+    /* <Image
+    source={require('../assets/images/taxi.png')}
+    style={styles.image}
+/>
+ <Text style={styles.title}>Ajoute</Text>*/

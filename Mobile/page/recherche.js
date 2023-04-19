@@ -21,7 +21,7 @@ export default function Recherche({navigation}) {
     const [taxi2, settaxi2] = useState([]);
 
     useEffect(() => {
-        fetch('https://2691-41-140-244-97.ngrok-free.app/taximo/' , {
+        fetch('https://c4e8-41-141-247-212.ngrok-free.app/taximo/' , {
           method: 'GET',
           
         })
@@ -36,7 +36,7 @@ export default function Recherche({navigation}) {
       
       useEffect(() => {
         if (choosenLabel) {
-          fetch(`https://2691-41-140-244-97.ngrok-free.app/taximo/?search=${choosenLabel}`, {
+          fetch(`https://c4e8-41-141-247-212.ngrok-free.app/taximo/?search=${choosenLabel}`, {
             method: 'GET',
           })
             .then((response) => response.json())
@@ -52,7 +52,6 @@ export default function Recherche({navigation}) {
         
             <View style={styles.container}>
                   <View style={styles.select}>
-                      <Icon name="calendar" style={styles.iconStyle} />
                       <Picker
                         selectedValue={choosenLabel}
                         onValueChange={(itemValue, itemIndex) => {
@@ -70,20 +69,20 @@ export default function Recherche({navigation}) {
      
             <View style={{flexDirection: 'row',marginTop:"20%",}}>
               <View style={styles.disp}>
-              <Text style={{marginLeft:'10%' , fontSize: '20%', color:'white'}}>Reste_brut :</Text>
+              <Text style={{marginLeft:'10%' , fontSize: 20, color:'white'}}>Reste_brut :</Text>
                    {
                       taxi2.map((item) => (
-                        <Text style={{marginLeft:'10%' , fontSize: '20%', cfontSize: '25%', color:'red'}}>{item.reste_brut}</Text>
+                        <Text style={{marginLeft:'10%' , fontSize: 20, color:'red'}}>{item.reste_brut}</Text>
                       ))
                     }
           
             </View>
                 
               <View style={styles.disp}>
-              <Text style={{marginLeft:'10%' , fontSize: '20%', color:'white'}}>mnt_gasoil :</Text>
+              <Text style={{marginLeft:'10%' , fontSize:20, color:'white'}}>mnt_gasoil :</Text>
               {
                       taxi2.map((item) => (
-                        <Text style={{marginLeft:'10%' , fontSize: '20%',fontSize: '25%', color:'red'}}>{item.mnt_gasoil}</Text>
+                        <Text style={{marginLeft:'10%' ,fontSize: 25, color:'red'}}>{item.mnt_gasoil}</Text>
                       ))
                     }
               </View>
@@ -91,18 +90,18 @@ export default function Recherche({navigation}) {
 
             <View style={{flexDirection: 'row'}}>
               <View style={styles.disp}>
-              <Text style={{marginLeft:'10%' , fontSize: '20%', color:'white'}}>Rectte Brute :</Text>
+              <Text style={{marginLeft:'10%' , fontSize: 20, color:'white'}}>Rectte Brute :</Text>
               {
                       taxi2.map((item) => (
-                        <Text style={{marginLeft:'10%' , fontSize: '20%', fontSize: '25%', color:'red'}}>{item.rectte_brute}</Text>
+                        <Text style={{marginLeft:'10%' , fontSize: 20, color:'red'}}>{item.rectte_brute}</Text>
                       ))
                     }
               </View>
               <View style={styles.disp}>
-              <Text style={{marginLeft:'10%' , fontSize: '20%', color:'white'}}>Rectte Net :</Text>
+              <Text style={{marginLeft:'10%' , fontSize: 20, color:'white'}}>Rectte Net :</Text>
               {
                       taxi2.map((item) => (
-                        <Text style={{marginLeft:'10%' , fontSize: '20%', fontSize: '25%', color:'red'}}>{item.recette_net}</Text>
+                        <Text style={{marginLeft:'10%' ,  fontSize: 25, color:'red'}}>{item.recette_net}</Text>
                       ))
                     }
               </View>
@@ -110,18 +109,18 @@ export default function Recherche({navigation}) {
 
             <View style={{flexDirection: 'row'}}>
               <View style={styles.disp}>
-              <Text style={{marginLeft:'10%' , fontSize: '20%', color:'white'}}>Charge Chauffeur :</Text>
+              <Text style={{marginLeft:'10%' , fontSize: 20, color:'white'}}>Charge Chauffeur :</Text>
               {
                       taxi2.map((item) => (
-                        <Text style={{marginLeft:'10%' , fontSize: '20%', fontSize: '25%', color:'red'}}>{item.charge_chf}</Text>
+                        <Text style={{marginLeft:'10%' , fontSize: 25, color:'red'}}>{item.charge_chf}</Text>
                       ))
                     }
               </View>
               <View style={styles.disp}>
-              <Text style={{marginLeft:'10%' , fontSize: '20%', color:'white'}}>Charge Proprietair :</Text>
+              <Text style={{marginLeft:'10%' , fontSize: 20, color:'white'}}>Charge Proprietair :</Text>
                    {
                       taxi2.map((item) => (
-                        <Text style={{marginLeft:'10%' , fontSize: '20%', fontSize: '25%', color:'red'}}>{item.charge_prt}</Text>
+                        <Text style={{marginLeft:'10%' , fontSize: 25, color:'red'}}>{item.charge_prt}</Text>
                       ))
                     }
               </View>
@@ -129,31 +128,30 @@ export default function Recherche({navigation}) {
 
             <View style={{flexDirection: 'row'}}>
               <View style={styles.disp}>
-              <Text style={{marginLeft:'10%' , fontSize: '20%', color:'white'}}>Chauffeur :</Text>
+              <Text style={{marginLeft:'10%' , fontSize: 20, color:'white'}}>Chauffeur :</Text>
               {
                       taxi2.map((item) => (
-                        <Text style={{marginLeft:'10%' , fontSize: '25%', color:'red'}}>{item.chaffaure}</Text>
+                        <Text style={{marginLeft:'10%' , fontSize: 25, color:'red'}}>{item.chaffaure}</Text>
                       ))
                     }
               </View>
               <View style={styles.disp}>
-              <Text style={{marginLeft:'10%' , fontSize: '20%', color:'white'}}>Proprietair :</Text>
+              <Text style={{marginLeft:'10%' , fontSize: 20, color:'white'}}>Proprietair :</Text>
               {
                       taxi2.map((item) => (
-                        <Text style={{marginLeft:'10%' , fontSize: '20%', fontSize: '25%', color:'red'}}>{item.proprietaire}</Text>
+                        <Text style={{marginLeft:'10%' , fontSize: 20, color:'red'}}>{item.proprietaire}</Text>
                       ))
                     }
               </View>
-            </View>
-      
+            </View>         
           </View>
-       
+          <Image
+                    source={require('../assets/images/taxi.png')}
+                    style={styles.image}
+                />
       </View>
       
-      <Image
-                source={require('../assets/images/taxi.png')}
-                style={styles.image}
-            />
+   
     </View>
     );
     }
@@ -167,7 +165,7 @@ export default function Recherche({navigation}) {
         marginBottom:'10%',
         marginTop:"10%",
         backgroundColor:'white',
-        borderRadius:"30%",
+        borderRadius:30,
       }, iconStyle: {
         color: "black",
         fontSize: 80,
@@ -175,19 +173,20 @@ export default function Recherche({navigation}) {
       },body:{
           height:'140%',
           backgroundColor:"white",
-          borderTopLeftRadius:'130%'
+          borderTopLeftRadius:130
       },image:{
         position:'absolute',
         height:'30%',
-        width:"105%",
-        marginTop:'50%'
+        width:"90%",
+        marginTop:'50%',
+        marginLeft:'20%'
       },disp:{
           backgroundColor:"black",
           height:'70%',
           marginTop:"10%",
           marginLeft:'0%',
           width:'50%',
-          borderRadius:'30%'
+          borderRadius:30
       }, 
       disp2:{
         backgroundColor:"white",
@@ -195,7 +194,7 @@ export default function Recherche({navigation}) {
         marginTop:"30%",
         marginLeft:'0%',
         width:'40%',
-        borderRadius:'30%'
+        borderRadius:30
     }
       
     });

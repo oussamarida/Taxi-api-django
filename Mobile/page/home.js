@@ -57,7 +57,7 @@ export default function HomeScreen({navigation}) {
             height:"100%",
             backgroundColor:'white',
             marginTop:'50%',
-            borderTopLeftRadius:'150%',
+            borderTopLeftRadius:150,
             paddingTop:"40%"
           },image:{
             position:'absolute',
@@ -67,7 +67,7 @@ export default function HomeScreen({navigation}) {
           },title:{
             position:"absolute",
             color: 'black',
-            fontSize: '50%',
+            fontSize: 50,
             marginLeft:"30%",
             marginTop:'10%'
           }, materialButtonDark: {
