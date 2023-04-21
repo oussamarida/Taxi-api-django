@@ -2,9 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, StyleSheet, Text,Image ,TouchableOpacity , Button} from 'react-native';
 import { SafeAreaView } from 'react-native';
-import MaterialButtonDark from "../components/MaterialButtonDark";
-import { TextInput } from 'react-native-gesture-handler';
-import MaterialButtonDark2 from '../components/MaterialButtonDark2';
+
 
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import {Picker} from '@react-native-picker/picker';
@@ -161,6 +159,46 @@ useEffect(() => {
             flex:1,
             backgroundColor:"#f0d313"
         },part:{
+          height:"100%",
+          backgroundColor:'white',
+          marginTop:'50%',
+          borderTopLeftRadius:150,
+          paddingTop:"10%"
+        },image:{
+          position:'absolute',
+          height:'15%',
+          width:"65%",
+          marginTop:'10%',
+          marginLeft:"40%"
+        },title:{
+          position:"absolute",
+          width:'50%',
+          marginTop:'10%',
+          height:"10%"
+        },select:{
+          margin:'10%',
+          marginLeft:'20%',
+          marginBottom:'10%',
+          backgroundColor:'white',
+          borderRadius:30,
+        }, iconStyle: {
+          color: "black",
+          fontSize: 20,
+          position:'absolute',
+        },container:{
+          width:'100%',
+        },card:{
+          height:"23%",
+          width:'90%',
+          backgroundColor:"black",
+          borderRadius:50,
+          marginTop:4,
+          marginLeft:30
+        }
+    });
+    
+
+    /*part:{
             height:"100%",
             backgroundColor:'white',
             marginTop:'50%',
@@ -175,13 +213,11 @@ useEffect(() => {
           },title:{
             position:"absolute",
             width:'50%',
-            marginLeft:"00%",
             marginTop:'10%',
             height:"10%"
           },select:{
         margin:'10%',
         marginBottom:'10%',
-        marginTop:"0%",
         backgroundColor:'white',
         borderRadius:30,
       }, iconStyle: {
@@ -197,6 +233,4 @@ useEffect(() => {
         marginLeft:"5O%",
         borderRadius:50,
         marginTop:"3%",
-      }
-    });
-    
+      }*/

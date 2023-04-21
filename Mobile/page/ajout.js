@@ -1,10 +1,10 @@
-import { View, StyleSheet, Text,Image ,TextInput,TouchableOpacity } from 'react-native';
+import { View, StyleSheet, Text,Image ,TextInput,TouchableOpacity, Alert } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { SafeAreaView } from 'react-native';
 import MaterialButtonDark from "../components/MaterialButtonDark";
-import { DatePickerIOS} from 'react-native';
+import { DatePickerIOS,DatePickerAndroid} from 'react-native';
 import MaterialButtonDark2 from '../components/MaterialButtonDark2';
-
+import DateTimePicker from '@react-native-community/datetimepicker';
 
 export default function Ajout({navigation}) {
 
@@ -12,9 +12,26 @@ export default function Ajout({navigation}) {
     const [selectedDate, setSelectedDate] = React.useState(null);
     const [showDatePicker, setShowDatePicker] = React.useState(false);
     const [chosenDate, setChosenDate] = React.useState(new Date());
-    const handleDateButtonPress = () => {
-        setShowDatePicker(!showDatePicker);
-   };
+
+    const [date, setDate] = useState(new Date());
+
+
+    const handleDateButtonPress = (event, selectedDate) => {
+      const currentDate = selectedDate || date;
+      setShowDatePicker(Platform.OS === 'ios');
+      setDate(currentDate);
+      const formattedDate = selectedDate.toISOString().slice(0, 10);
+      
+      setSelectedDate(formattedDate)
+    };
+    
+
+
+    const showMode = () => {
+      setShowDatePicker(true);
+    };
+
+
    const handleDateChange = (newDate) => {
     const formattedDate = new Date(newDate).toISOString().slice(0, 10);
     setChosenDate(newDate);
@@ -45,20 +62,9 @@ export default function Ajout({navigation}) {
   }, [Chargec, Gasoil, RecetteNet, Chargep]);
 
 
-  
-maps=  {
-    date: selectedDate,
-    reste_brut:Number("1000"),
-    mnt_gasoil: Number("1000"),
-    rectte_brute: Number("1000"),
-    recette_net: Number("1000"),
-    charge_chf:Number("1000"),
-    charge_prt: Number("1000"),
-    chaffaure: Number("1000"),
-    proprietaire:Number("1000")
-}
-
   function handleCardClick() {
+   
+console.log(selectedDate)
       const data={date:selectedDate,
     reste_brut:Number(newRestB),
     mnt_gasoil:Number(Gasoil),
@@ -81,7 +87,7 @@ maps=  {
     .then(response => response.json())
     .then(data => {
         console.log(data);
-    })
+          })
     .catch(error => {
         console.error(error);
     });
@@ -91,18 +97,27 @@ maps=  {
     return (
         <SafeAreaView style={styles.home}>
           
-          <View style={styles.part}>
-                <View style={styles.container}>
-                    <MaterialButtonDark2
-                          caption="Date"
-                          style={styles.materialButtonDark}
-                          onPress={handleDateButtonPress}
-                        />
-                 </View>
-                 
-                {showDatePicker && (
-                   <DatePickerIOS date={chosenDate} mode="date" onDateChange={handleDateChange} />
-                     )}
+                      <View style={styles.part}>
+                      <View style={styles.container}>
+                      <MaterialButtonDark2
+          caption="Date"
+          style={styles.materialButtonDark}
+          onPress={showMode}
+        />
+      </View>
+
+      {showDatePicker && (
+        <DateTimePicker
+          testID="dateTimePicker"
+          value={date}
+          mode="date"
+          is24Hour={true}
+          display="default"
+          onChange={handleDateButtonPress}
+        />
+      )}
+
+   
                     <View style={{flexDirection: 'row'}}>
                       <TextInput
                             style={styles.input}
@@ -110,6 +125,8 @@ maps=  {
                             value={Gasoil}
                             placeholder="Gasoil"
                             placeholderTextColor="red"
+                            keyboardType="numeric"
+
                             />
                        <TextInput
                             style={styles.input}
@@ -117,6 +134,7 @@ maps=  {
                             value={RecetteNet}
                             placeholder="Recette Net"
                             placeholderTextColor="red"
+                            keyboardType="numeric"
                             />
                     </View>
                     <View style={{flexDirection: 'row'}}>
@@ -126,6 +144,8 @@ maps=  {
                             value={Chargep}
                             placeholder="Charge prtre"
                             placeholderTextColor="red"
+                            keyboardType="numeric"
+
                             />
                        <TextInput
                             style={styles.input}
@@ -133,6 +153,8 @@ maps=  {
                             value={Chargec}
                             placeholder="Charge chf"
                             placeholderTextColor="red"
+                            keyboardType="numeric"
+
                             />
                     </View>
               

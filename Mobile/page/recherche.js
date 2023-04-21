@@ -6,7 +6,6 @@ import {
   StyleSheet,
   Image
 } from 'react-native';
-import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 import {Picker} from '@react-native-picker/picker';
 
@@ -72,7 +71,7 @@ export default function Recherche({navigation}) {
               <Text style={{marginLeft:'10%' , fontSize: 20, color:'white'}}>Reste_brut :</Text>
                    {
                       taxi2.map((item) => (
-                        <Text style={{marginLeft:'10%' , fontSize: 20, color:'red'}}>{item.reste_brut}</Text>
+                        <Text key={item.id} style={{marginLeft:'10%' , fontSize: 20, color:'red'}}>{item.reste_brut}</Text>
                       ))
                     }
           
@@ -82,7 +81,7 @@ export default function Recherche({navigation}) {
               <Text style={{marginLeft:'10%' , fontSize:20, color:'white'}}>mnt_gasoil :</Text>
               {
                       taxi2.map((item) => (
-                        <Text style={{marginLeft:'10%' ,fontSize: 25, color:'red'}}>{item.mnt_gasoil}</Text>
+                        <Text key={item.id} style={{marginLeft:'10%' ,fontSize: 25, color:'red'}}>{item.mnt_gasoil}</Text>
                       ))
                     }
               </View>
@@ -93,7 +92,7 @@ export default function Recherche({navigation}) {
               <Text style={{marginLeft:'10%' , fontSize: 20, color:'white'}}>Rectte Brute :</Text>
               {
                       taxi2.map((item) => (
-                        <Text style={{marginLeft:'10%' , fontSize: 20, color:'red'}}>{item.rectte_brute}</Text>
+                        <Text key={item.id}  style={{marginLeft:'10%' , fontSize: 20, color:'red'}}>{item.rectte_brute}</Text>
                       ))
                     }
               </View>
@@ -101,7 +100,7 @@ export default function Recherche({navigation}) {
               <Text style={{marginLeft:'10%' , fontSize: 20, color:'white'}}>Rectte Net :</Text>
               {
                       taxi2.map((item) => (
-                        <Text style={{marginLeft:'10%' ,  fontSize: 25, color:'red'}}>{item.recette_net}</Text>
+                        <Text key={item.id} style={{marginLeft:'10%' ,  fontSize: 25, color:'red'}}>{item.recette_net}</Text>
                       ))
                     }
               </View>
@@ -112,7 +111,7 @@ export default function Recherche({navigation}) {
               <Text style={{marginLeft:'10%' , fontSize: 20, color:'white'}}>Charge Chauffeur :</Text>
               {
                       taxi2.map((item) => (
-                        <Text style={{marginLeft:'10%' , fontSize: 25, color:'red'}}>{item.charge_chf}</Text>
+                        <Text  key={item.id} style={{marginLeft:'10%' , fontSize: 25, color:'red'}}>{item.charge_chf}</Text>
                       ))
                     }
               </View>
@@ -120,7 +119,7 @@ export default function Recherche({navigation}) {
               <Text style={{marginLeft:'10%' , fontSize: 20, color:'white'}}>Charge Proprietair :</Text>
                    {
                       taxi2.map((item) => (
-                        <Text style={{marginLeft:'10%' , fontSize: 25, color:'red'}}>{item.charge_prt}</Text>
+                        <Text key={item.id} style={{marginLeft:'10%' , fontSize: 25, color:'red'}}>{item.charge_prt}</Text>
                       ))
                     }
               </View>
@@ -131,7 +130,7 @@ export default function Recherche({navigation}) {
               <Text style={{marginLeft:'10%' , fontSize: 20, color:'white'}}>Chauffeur :</Text>
               {
                       taxi2.map((item) => (
-                        <Text style={{marginLeft:'10%' , fontSize: 25, color:'red'}}>{item.chaffaure}</Text>
+                        <Text key={item.id} style={{marginLeft:'10%' , fontSize: 25, color:'red'}}>{item.chaffaure}</Text>
                       ))
                     }
               </View>
@@ -178,7 +177,7 @@ export default function Recherche({navigation}) {
         position:'absolute',
         height:'30%',
         width:"90%",
-        marginTop:'50%',
+        marginTop:'15%',
         marginLeft:'20%'
       },disp:{
           backgroundColor:"black",
